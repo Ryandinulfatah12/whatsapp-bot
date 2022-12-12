@@ -48,7 +48,7 @@ then open browser and run localhost:8080
 
 ## API Reference
 
-#### Send Message By ID
+#### Test sending message by ID
 
 you have to add id manually in client and link your whatsapp device to client.
 
@@ -66,8 +66,6 @@ Example
 | `message` | `[bot] hello world` |
 | `sender`  | `12`                |
 
-## Used By
+## Authors
 
-This project is used by the following companies:
-
-- SQM Property
+- Ryan Dinul Fatah

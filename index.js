@@ -103,6 +103,15 @@ const createSession = (id) => {
     const prompt = message.body;
     const answer = await ask(prompt);
     const number = phoneNumberFormatter(message.from);
+
+    // get contact information
+    const contactInfo = await message.getContact();
+
+    // call sender name
+    senderName = contactInfo.isMyContact
+      ? contactInfo.name
+      : contactInfo.pushname;
+
     if (prompt.includes("#ai")) {
       console.log(`Nomor ${message.from} menanyakan ${prompt}`);
       console.log(`AI menjawab ${answer}`);
@@ -110,7 +119,7 @@ const createSession = (id) => {
     } else {
       client.sendMessage(
         number,
-        "gunakan #ai didepan pertanyaan untuk memanggil ai"
+        `Hai ${senderName} gunakan *#ai* sebelum pertanyaan untuk mendapatkan jawaban dari AI`
       );
     }
   });
