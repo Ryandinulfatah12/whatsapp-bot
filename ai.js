@@ -5,6 +5,13 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_TOKEN,
 });
 const openai = new OpenAIApi(configuration);
+
+// this function for delete whitespace before string
+function ltrim(str) {
+  if (!str) return str;
+  return str.replace(/^\s+/g, "");
+}
+
 async function ask(prompt) {
   const response = await openai.createCompletion({
     model: "text-davinci-003",
@@ -16,11 +23,12 @@ async function ask(prompt) {
     presence_penalty: 0,
   });
   const answer = response.data.choices[0].text;
-  return answer;
-  //   console.log(answer);
+  trimmedAnswer = ltrim(answer);
+  return trimmedAnswer;
+  // console.log(ltrim(answer));
 }
 
 //Ask an example question
-// ask("apakah kamu punya keluarga?");
+// ask("lagu iwan fals?");
 
 module.exports = { ask };
