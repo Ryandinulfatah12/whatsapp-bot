@@ -5,9 +5,10 @@
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
     "nodemon": "^2.0.19",
+    "openai": "^3.1.0",
     "qrcode": "^1.5.1",
     "socket.io": "^4.5.1",
-    "whatsapp-web.js": "^1.17.1"
+    "whatsapp-web.js": "^1.18.4"
   },
   "name": "wa-web-js-2",
   "version": "1.0.0",
@@ -19,7 +20,6 @@
   "author": "",
   "license": "ISC",
   "description": "Automation whatsapp bot using whatsapp-web.js library",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SQM-Property/wa-automate.git"
@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/SQM-Property/wa-automate/issues"
   },
-  "homepage": "https://github.com/SQM-Property/wa-automate#readme"
+  "homepage": "https://github.com/SQM-Property/wa-automate#readme",
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  }
 }

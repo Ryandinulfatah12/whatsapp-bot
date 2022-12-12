@@ -1,3 +1,4 @@
+require("dotenv").config(); // call configuration file
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const socketIO = require("socket.io");
 const express = require("express");
@@ -6,6 +7,7 @@ const http = require("http");
 const qrcode = require("qrcode");
 const fs = require("fs");
 const { phoneNumberFormatter } = require("./helpers/formatter");
+const { ask } = require("./ai.js");
 
 const app = express();
 const server = http.createServer(app);
@@ -93,10 +95,23 @@ const createSession = (id) => {
   });
 
   //   Test
-  client.on("message", (message) => {
-    if (message.body === "p") {
-      client.sendMessage(message.from, "pong");
-      console.log(`Nomor ${message.from} mengirim pesan WA ke ${id}`);
+  client.on("message", async (message) => {
+    // if (message.body === "p") {
+    //   client.sendMessage(message.from, "pong");
+    //   console.log(`Nomor ${message.from} mengirim pesan WA ke ${id}`);
+    // }
+    const prompt = message.body;
+    const answer = await ask(prompt);
+    const number = phoneNumberFormatter(message.from);
+    if (prompt.includes("#ai")) {
+      console.log(`Nomor ${message.from} menanyakan ${prompt}`);
+      console.log(`AI menjawab ${answer}`);
+      client.sendMessage(number, answer);
+    } else {
+      client.sendMessage(
+        number,
+        "gunakan #ai didepan pertanyaan untuk memanggil ai"
+      );
     }
   });
 
