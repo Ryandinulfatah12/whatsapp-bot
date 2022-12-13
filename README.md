@@ -20,7 +20,7 @@ Automation whatsapp bot using whatsapp-web.js library integrated with artificial
 Clone the project
 
 ```bash
-  git clone https://github.com/SQM-Property/wa-automate.git
+  git clone https://github.com/Ryandinulfatah12/whatsapp-bot
 ```
 
 Go to the project directory
