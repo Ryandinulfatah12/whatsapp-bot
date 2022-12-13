@@ -23,13 +23,13 @@ Clone the project
   git clone https://github.com/SQM-Property/wa-automate.git
 ```
 
-Create dotenv file for the environment variables
+Go to the project directory
 
 ```bash
   cd wa-automate
 ```
 
-Go to the project directory
+Create dotenv file for the environment variables
 
 ```bash
   OPENAI_TOKEN=[YOUR_API_TOKEN]
