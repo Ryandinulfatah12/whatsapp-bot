@@ -8,11 +8,13 @@ const qrcode = require("qrcode");
 const fs = require("fs");
 const { phoneNumberFormatter } = require("./helpers/formatter");
 const { ask } = require("./ai.js");
+const path = require("path");
 
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
+app.use("/src", express.static(__dirname + "/src")); //allow for static files
 app.use(express.json());
 app.use(
   express.urlencoded({

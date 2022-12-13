@@ -1,0 +1,299 @@
+//** variables
+$background: #f5f6fa;
+$text: #9c9c9c;
+$input-bg-color: #fff;
+$input-text-color: #a3a3a3;
+$button-bg-color: #4385f5;
+$button-text-color: #fff;
+
+// Card element
+$black: #282828;
+$point: #4385f5;
+$point-light: lighten($point, 5%);
+$ratio: 1.618;
+$card_width: 250px;
+$card_height: $card_width * $ratio;
+$card_padding: 20px;
+$card-bgcolor: white;
+$card_margin: 5px;
+$card_round: 10px;
+$card-shadow: -20px -20px 0px 0px $point-light;
+
+$card-padding-basis: 15px;
+$card_head_padding: 0px 0px $card-padding-basis 0px;
+
+//** root
+:root {
+  background: $background;
+  color: $text;
+  font: 1rem "PT Sans", sans-serif;
+}
+
+html,
+body,
+.container {
+  height: 100%;
+}
+
+a {
+  color: inherit;
+
+  &:hover {
+    color: $button-bg-color;
+  }
+}
+
+//** helper
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container-flex {
+  h1 {
+    text-align: center;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+//** button
+.btn {
+  display: inline-block;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+
+  &--primary {
+    background: $button-bg-color;
+    color: $button-text-color;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 12px 36px;
+
+    &:hover {
+      background: darken($button-bg-color, 4%);
+    }
+
+    &:active {
+      background: $button-bg-color;
+      box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &--inside {
+    margin-left: -96px;
+  }
+}
+
+//** form
+.form {
+  &__field {
+    width: 360px;
+    background: #fff;
+    color: $input-text-color;
+    font: inherit;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+    border: 0;
+    outline: 0;
+    padding: 22px 18px;
+  }
+}
+
+// Card
+.card {
+  background-color: $card-bgcolor;
+  width: $card_width;
+  min-height: $card_height;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: $card_padding;
+  margin: $card_margin;
+
+  -webkit-box-shadow: $card-shadow;
+
+  box-shadow: $card-shadow;
+  border-radius: $card_round;
+
+  -webkit-animation-name: shadow-show; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+  animation-name: shadow-show;
+  animation-duration: 1.5s;
+
+  -webkit-transition-timing-function: cubic-bezier(0.795, 0, 0.165, 1);
+  -o-transition-timing-function: cubic-bezier(0.795, 0, 0.165, 1);
+  transition-timing-function: cubic-bezier(0.795, 0, 0.165, 1); /* custom */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0px;
+    padding: $card_head_padding;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 30px;
+    color: $black;
+  }
+
+  hr {
+    display: block;
+    border: none;
+    height: 3px;
+    background-color: $point;
+    margin: 0px;
+
+    -webkit-animation-name: line-show; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.3s; /* Safari 4.0 - 8.0 */
+    animation-name: line-show;
+    animation-duration: 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.795, 0, 0.165, 1);
+    -o-transition-timing-function: cubic-bezier(0.795, 0, 0.165, 1);
+    transition-timing-function: cubic-bezier(0.795, 0, 0.165, 1); /* custom */
+  }
+
+  p {
+    margin: $card-padding-basis 0px 0px 0px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 100;
+    letter-spacing: -0.25px;
+    line-height: 1.25;
+    font-size: 16px;
+    word-break: break-all;
+    word-wrap: pre-wrap;
+    color: $black;
+
+    -webkit-animation-name: p-show; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+    animation-name: p-show;
+    animation-duration: 1.5s;
+  }
+
+  button {
+    border: none;
+    background-color: $point;
+    width: 50%;
+    margin: 10px auto;
+    padding: 10px 30px;
+    color: white;
+    font-family: "Noto Sans KR", sans-serif;
+    text-transform: uppercase;
+  }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes line-show {
+  from {
+    margin: 0px 100px;
+  }
+  to {
+    margin: 0px;
+  }
+}
+
+/* Standard syntax */
+@keyframes line-show {
+  from {
+    margin: 0px 100px;
+  }
+  to {
+    margin: 0px;
+  }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes p-show {
+  from {
+    color: white;
+  }
+  to {
+    color: $black;
+  }
+}
+
+/* Standard syntax */
+@keyframes p-show {
+  from {
+    color: white;
+  }
+  to {
+    color: $black;
+  }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes shadow-show {
+  from {
+    -webkit-box-shadow: 0px 0px 0px 0px #e0e0e0;
+    box-shadow: 0px 0px 0px 0px #e0e0e0;
+  }
+  to {
+    -webkit-box-shadow: $card-shadow;
+    box-shadow: $card-shadow;
+  }
+}
+
+/* Standard syntax */
+@keyframes shadow-show {
+  from {
+    -webkit-box-shadow: 0px 0px 0px 0px #e0e0e0;
+    box-shadow: 0px 0px 0px 0px #e0e0e0;
+  }
+  to {
+    -webkit-box-shadow: $card-shadow;
+    box-shadow: $card-shadow;
+  }
+}
+
+// Client styles Card
+.client-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 24px;
+}
+
+#qrcode {
+  display: none; /* Showed when qr code received */
+  width: 100%;
+  margin: 10px 0;
+  border: 1px solid $background;
+  border-radius: 4px;
+}
+ul.logs {
+  max-height: 150px;
+  padding: 15px 15px 15px 30px;
+  margin-top: 5px;
+  border-radius: 4px;
+  overflow-y: auto;
+  background: $background;
+  color: $point;
+  font-size: 14px;
+}
+ul.logs li:first-child {
+  color: $point;
+}
+.hide {
+  display: none;
+}
+.illustration {
+  width: 60%;
+}
